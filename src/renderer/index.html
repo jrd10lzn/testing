@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Claude Usage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      <span id="dot" class="dot"></span>
+      <h1>Uso de Claude Pro</h1>
+    </div>
+    <button id="btn-refresh" class="icon-btn" title="Actualizar ahora">⟳</button>
+  </header>
+
+  <p id="subtitle" class="subtitle">Cargando…</p>
+
+  <section id="login" class="panel hidden">
+    <p>Inicia sesión en Claude una vez para que la app pueda leer tu página de uso. La sesión se guarda solo en este PC.</p>
+    <button id="btn-login" class="primary">Iniciar sesión en Claude</button>
+    <p class="hint">Consejo: usa «Continuar con correo». El inicio con Google puede bloquearse dentro de apps de escritorio.</p>
+  </section>
+
+  <section id="error" class="panel error hidden">
+    <p id="error-text"></p>
+    <div class="row">
+      <button id="btn-view">Ver página</button>
+      <button id="btn-retry">Reintentar</button>
+    </div>
+  </section>
+
+  <main id="cards">
+    <div id="cards-primary" class="grid"></div>
+    <div id="cards-secondary" class="grid"></div>
+  </main>
+
+  <section id="forecast" class="panel hidden">
+    <h2>Previsión</h2>
+    <div id="forecast-rows"></div>
+    <p class="hint">Estimación al ritmo de consumo reciente. Se afina a medida que la app acumula lecturas.</p>
+  </section>
+
+  <details id="settings">
+    <summary>Ajustes</summary>
+    <label class="setting">
+      <span>Actualizar cada</span>
+      <select id="interval">
+        <option value="1">1 min</option>
+        <option value="2">2 min</option>
+        <option value="5">5 min</option>
+        <option value="10">10 min</option>
+        <option value="15">15 min</option>
+        <option value="30">30 min</option>
+      </select>
+    </label>
+    <label class="setting"><span>Avisos al 80 % y 95 %</span><input type="checkbox" id="notify"></label>
+    <label class="setting"><span>Siempre visible</span><input type="checkbox" id="ontop"></label>
+    <label class="setting"><span>Iniciar con Windows</span><input type="checkbox" id="autostart"></label>
+    <div class="row">
+      <button id="btn-open">Abrir en el navegador</button>
+      <button id="btn-logout">Cerrar sesión</button>
+    </div>
+  </details>
+
+  <canvas id="icon-canvas" width="32" height="32" class="hidden"></canvas>
+  <script src="renderer.js"></script>
+</body>
+</html>

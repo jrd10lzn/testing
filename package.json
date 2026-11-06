@@ -1,0 +1,37 @@
+{
+  "name": "claude-usage-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard de escritorio con el uso restante de tu plan Claude Pro",
+  "main": "src/main.js",
+  "author": "jrdlzn",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/parser.test.js && node test/forecast.test.js",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.jrdlzn.claudeusage",
+    "productName": "Claude Usage",
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.png",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
